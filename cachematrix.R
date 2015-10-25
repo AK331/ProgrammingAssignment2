@@ -1,6 +1,7 @@
 ## Computes the inverse of a matrix and caches the results
 
-## Calculates the inverse of a matrix
+## Creates a special "matrix" which is just a list containing a function to
+## get and set the maxtrix and to get and set the inverse 
 
 makeCacheMatrix <- function(x = matrix()) {
 	m <- NULL
@@ -15,11 +16,12 @@ makeCacheMatrix <- function(x = matrix()) {
 }
 
 ## Computes the inverse of the matrix in makeCacheMatrix 
-## or retrieves the cached values
+## If the inverse has already been cached, it retrieves that inverse
+## Else it calculates the inverse and sets it as a cached inverse
 
 cacheSolve <- function(x, ...) {
       m <- x$getinv()
-	if(!is.null(m)){
+	if(!is.null(m)){ 
 		message("getting cached data")
 		return(m)
 	}
